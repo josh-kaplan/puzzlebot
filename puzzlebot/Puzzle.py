@@ -12,4 +12,4 @@ class Puzzle:
 
     def answer(self):
         encoded = base64.b64encode(self._answer.encode('utf-8')).decode('utf-8')
-        return f'Answer: {encoded}'
+        return f'Answer: https://josh-kaplan.github.io/puzzlebot/?{encoded}'

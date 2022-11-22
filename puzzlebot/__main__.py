@@ -29,16 +29,17 @@ def main():
     body += game.question()
     body += '\n\n'
     body += game.answer()
+    body += '\n\n'
+    body += '#PuzzleBot'
     print(body)
 
-    #mastodon = Mastodon(
-    #    api_base_url = 'https://universeodon.com/',
-    #    access_token = os.environ.get('MASTODON_ACCESS_TOKEN', '')
-    #)
+    mastodon = Mastodon(
+        api_base_url = 'https://universeodon.com/',
+        access_token = args.access_token
+    )
 
     # Post status
-    
-    #mastodon.toot('Tooting from Python using #mastodonpy !')
+    mastodon.toot(body)
 
 
 if __name__ == '__main__':
