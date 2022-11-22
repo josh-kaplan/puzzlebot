@@ -3,9 +3,9 @@ name: Run the bot
 on:
   schedule:
   - cron: '00 6 * * *' # Runs the bot daily at 6am UTC
-  - cron: '00 19 * * *'
+  - cron: '30 19 * * *' # Runs at 7:30pm UTC
   # Add support for manual triggering
-  #workflow_dispatch:
+  workflow_dispatch:
   #  inputs:
   #    puzzleType:
   #      description: 'Puzzle Type'
