@@ -13,6 +13,7 @@ WEIGHTS = [50, 40, 10]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--access-token', required=True)
+    parser.add_argument('--puzzle-type', required=False)
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
 
@@ -20,9 +21,13 @@ def main():
     now = dt.datetime.utcnow()
     label = 'Morning Puzzle' if now.hour < 12 else 'Afternoon Puzzle'
     datefmt = now.strftime(f'%A, %B %d, %Y - {label}')
-    N = 1
 
-    game = random.choices(GAMES, WEIGHTS, k=1)[0]()
+    if args.puzzle_type == 'Anagram':
+        game = Anagram()
+    else:
+        game = random.choices(GAMES, WEIGHTS, k=1)[0]()
+
+
     game_help = game.GAME_HELP.replace('    ', '').replace('\n', '')
     body += f'PuzzleBot {datefmt}\n\n'
     body += game.question()
