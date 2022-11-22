@@ -25,6 +25,7 @@ def main():
     body += f'PuzzleBot {datefmt}\n\n'
     body += game.question()
     body += '\n\n' + '-'*40 + '\n\n'
+    body += 'More about PuzzleBot at https://josh-kaplan.github.io/puzzlebot\n\n'
     body += f'Instructions: {game_help}\n\n'
     body += f'Difficulty: {game.DIFFICULTY}'
     body += '\n\n'
