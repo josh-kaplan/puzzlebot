@@ -3,11 +3,12 @@ import random
 import datetime as dt
 from mastodon import Mastodon
 from .Anagram import Anagram
+from .Anagram7 import Anagram7
 from .PrimeFactorEasy import PrimeFactorEasy
 
 # Configure the puzzles
-GAMES = [Anagram, PrimeFactorEasy]
-WEIGHTS = [4, 1]
+GAMES = [Anagram, Anagram7, PrimeFactorEasy]
+WEIGHTS = [50, 40, 10]
 
 def main():
     parser = argparse.ArgumentParser()
@@ -17,7 +18,8 @@ def main():
 
     body = ''
     now = dt.datetime.utcnow()
-    datefmt = now.strftime('%A, %B %d, %Y')
+    label = 'Morning Puzzle' if now.hour < 12 else 'Afternoon Puzzle'
+    datefmt = now.strftime(f'%A, %B %d, %Y - {label}')
     N = 1
 
     game = random.choices(GAMES, WEIGHTS, k=1)[0]()

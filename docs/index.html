@@ -17,22 +17,34 @@
             left: 50%;
             position: absolute;
         }
+        /*#logo:hover #logo-pt1 {
+            transition: all 0.5s ease-in-out;
+            border-left: 3px solid #96e64a;
+            border-right: 3px solid #96e64a;
+            border-radius: 10px 10px 10px 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-right: 20px
+        }*/
     </style>
   </head>
   <body class="bg-dark text-light">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand"  style="color: #96e64a; font-size: 48px" href="#">
+          <a id="logo" class="navbar-brand bg-dark"  style="color: #96e64a; font-size: 48px;" href="#">
             <!--<img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">-->
-            PuzzleBot
+            <span id="logo-pt1" class="glow-on-hover">Puzzle</span><span id="logo-pt2" style="color: #8a929a">Bot</span>
           </a>
         </div>
       </nav>
     <main class="m-6" style="margin-top: 10vh">
         <center>
             <div class="container" style="max-width: 350px; text-align: left;">
-            <h1 style="font-size: 24px; color: #aaa">Answer Decoder:</h1>
-            <div id="decoded" style="font-size: 20px; color: #e8e8e8"></div>
+                <h1 style="font-size: 24px; color: #aaa">Answer Decoder:</h1>
+                <div id="decoded" style="font-size: 20px; color: #e8e8e8"></div>
+            </div>
+            <div class="container" style="max-width: 350px; text-align: left;">
+            
             </div>
         </center>
     </main>
