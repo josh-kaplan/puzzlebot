@@ -7,20 +7,20 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     # Runs the bot daily at 6am UTC
-    - cron:  '20 18 * * *'
+    - cron:  '30 6,18 * * *'
   # Add support for manual triggering
-  workflow_dispatch:
-    inputs:
-      puzzleType:
-        description: 'Puzzle Type'
-        required: true
-        default: 'RANDOM'
-        type: choice
-        options:
-        - RANDOM
-        - Anagram
-        - Anagram7
-        - PrimeFactors
+  #workflow_dispatch:
+  #  inputs:
+  #    puzzleType:
+  #      description: 'Puzzle Type'
+  #      required: true
+  #      default: 'RANDOM'
+  #      type: choice
+  #      options:
+  #      - RANDOM
+  #      - Anagram
+  #      - Anagram7
+  #      - PrimeFactors
 
 jobs:
   run_bot:
@@ -37,4 +37,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run the bot
       run: |
-        python -m puzzlebot --access-token ${{ secrets.MASTODON_ACCESS_TOKEN }} --puzzle-type ${{ inputs.puzzleType }}
+        python -m puzzlebot --access-token ${{ secrets.MASTODON_ACCESS_TOKEN }}
