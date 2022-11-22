@@ -12,6 +12,7 @@ WEIGHTS = [4, 1]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--access-token', required=True)
+    parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
 
     body = ''
@@ -22,24 +23,27 @@ def main():
     game = random.choices(GAMES, WEIGHTS, k=1)[0]()
     game_help = game.GAME_HELP.replace('    ', '').replace('\n', '')
     body += f'PuzzleBot {datefmt}\n\n'
-    body += f'Puzzle Type: {game.GAME_TYPE}\n'
-    body += f'Difficulty: {game.DIFFICULTY.lower()}\n'
-    body += f'Instructions: {game_help}'
-    body += '\n\n'
     body += game.question()
+    body += '\n\n' + '-'*40 + '\n\n'
+    body += f'Instructions: {game_help}\n\n'
+    body += f'Difficulty: {game.DIFFICULTY}'
     body += '\n\n'
+    
     body += game.answer()
     body += '\n\n'
-    body += '#PuzzleBot'
-    print(body)
+    body += '#PuzzleBot #Puzzle'
 
-    mastodon = Mastodon(
-        api_base_url = 'https://universeodon.com/',
-        access_token = args.access_token
-    )
+    if args.dry_run:
+        print(body)
+    else:
+        mastodon = Mastodon(
+            api_base_url = 'https://universeodon.com/',
+            access_token = args.access_token
+        )
 
-    # Post status
-    mastodon.toot(body)
+        # Post status
+        mastodon.toot(body)
+        print('Posted status.')
 
 
 if __name__ == '__main__':
