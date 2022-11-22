@@ -5,7 +5,7 @@ from mastodon import Mastodon
 from .Anagram import Anagram
 from .PrimeFactorEasy import PrimeFactorEasy
 
-
+# Configure the puzzles
 GAMES = [Anagram, PrimeFactorEasy]
 WEIGHTS = [4, 1]
 
