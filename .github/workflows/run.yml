@@ -8,6 +8,8 @@ on:
     # * is a special character in YAML so you have to quote this string
     # Runs the bot daily at 6am UTC
     - cron:  '00 6 * * *'
+  # Add support for manual triggering
+  workflow_dispatch:
 
 jobs:
   run_bot:
