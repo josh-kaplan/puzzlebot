@@ -1,14 +1,9 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 name: Run the bot
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    # Runs the bot daily at 6am UTC
-    - cron:  '00 6 * * *'
-    - cron:  '45 6,18 * * *'
+  - cron: '00 6 * * *' # Runs the bot daily at 6am UTC
+  - cron: '00 19 * * *'
   # Add support for manual triggering
   #workflow_dispatch:
   #  inputs:
