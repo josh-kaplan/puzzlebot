@@ -9,6 +9,18 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
         crossorigin="anonymous">
     <style>
+        a {
+            color: #00bfff;
+        }
+        .puzzle-intro {
+            margin-top: 28px;
+        }
+        .text-my-red {
+            color: #ff496c;
+        }
+        .text-my-pink {
+            color: #f78fa7;
+        }
         .navbar {
             height: 90px;
         }
@@ -40,11 +52,64 @@
     <main class="m-6" style="margin-top: 10vh">
         <center>
             <div class="container" style="max-width: 350px; text-align: left;">
-                <h1 style="font-size: 24px; color: #aaa">Answer Decoder:</h1>
+                <h2 style="font-size: 24px; color: #aaa">Answer Decoder:</h2>
                 <div id="decoded" style="font-size: 20px; color: #e8e8e8"></div>
             </div>
             <div class="container" style="max-width: 350px; text-align: left;">
             
+            </div>
+            <div id="about" class="container" style="max-width: 650px; text-align: left;">
+                <hr style="margin: 80px 0px;"/>
+                <h2 class="text-warning">About</h2>
+                <p>
+                    PuzzleBot is an <a rel="noopener noreferrer" href="https://github.com/josh-kaplan/puzzlebot">open-source</a> 
+                    project that posts a daily
+                    puzzle to <a rel="noopener noreferrer" href="https://universeodon.com/@jdkaplan">Mastodon</a>. 
+                    This began as a tiny experiment to explore
+                    Mastodon as social media platform while trying to create
+                    a bot that posts something of intellectual value and encourages
+                    critical thinking.
+                </p>
+                <p>
+                    PuzzleBot is entirely automated and the data set comes from
+                    a variety of sources. Those data sources and credits can be 
+                    found <a rel="noopener noreferrer" href="https://github.com/josh-kaplan/puzzlebot#data-sources-and-licensing">here</a>.
+                </p>
+                <hr style="margin: 80px 0 40px 0;"/>
+                <h2 class="text-info">The Puzzles</h2>
+                <p class="puzzle-intro">
+                    <strong class="text-my-pink">Anagrams.</strong> 
+                    An anagram is a word scramble. It takes word in jumbles up
+                    the letters. For this puzzle, you are given the scrambled
+                    set of letters and have to come up with the original word.
+                </p>
+                <p>
+                    PuzzleBot does both 5- and 7-letter anagrams. The five letter
+                    puzzles are relatively easy and often have more than one solution.
+                    The seven letter version is a bit harder.
+                </p>
+                <p class="puzzle-intro">
+                    <strong class="text-my-pink">Cryptograms.</strong> 
+                    A cryptogram is a puzzle that contains a phrase encrypted 
+                    with a simple cipher. Your goal is to determine the original 
+                    phrase.
+                </p>
+                <p>
+                    PuzzleBot uses caesar and substitution ciphers (selected at random)
+                    with random keys. PuzzleBot does not alter spaces or punctuation.
+                </p>
+                <p class="puzzle-intro">
+                    <strong class="text-my-pink">Prime Factors.</strong> 
+                    PuzzleBot's Prime Factors puzzle give you a number that was 
+                    made by multiplying two prime numbers together. Your goal is 
+                    to determine the prime numbers.
+                </p>
+                <p>
+                    PuzzleBot only uses the first hundred primes (2 - 541). But 
+                    this puzzle may be more suited to the computationally inclined.
+                </p>
+                <hr style="margin: 50px 0 40px 0;"/>
+                <p><small>Copyright &copy; 2022, Josh Kaplan</small></p>
             </div>
         </center>
     </main>
