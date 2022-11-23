@@ -23,3 +23,4 @@ def anagram_hash(word):
     chars = sorted([*word])
     key = ''.join(chars)
     return key
+

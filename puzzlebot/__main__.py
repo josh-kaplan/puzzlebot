@@ -5,10 +5,11 @@ from mastodon import Mastodon
 from .Anagram import Anagram
 from .Anagram7 import Anagram7
 from .PrimeFactorEasy import PrimeFactorEasy
+from .Cryptogram import Cryptogram
 
 # Configure the puzzles
-GAMES = [Anagram, Anagram7, PrimeFactorEasy]
-WEIGHTS = [50, 40, 10]
+GAMES = [Anagram, Anagram7, Cryptogram, PrimeFactorEasy]
+WEIGHTS = [40, 20, 30, 10]
 
 def main():
     parser = argparse.ArgumentParser()
@@ -24,6 +25,12 @@ def main():
 
     if args.puzzle_type == 'Anagram':
         game = Anagram()
+    elif args.puzzle_type == 'Anagram7':
+        game = Anagram7()
+    elif args.puzzle_type == 'Cryptogram':
+        game = Cryptogram()
+    elif args.puzzle_type == 'PrimeFactorEasy':
+        game = PrimeFactorEasy()
     else:
         game = random.choices(GAMES, WEIGHTS, k=1)[0]()
 
